@@ -325,15 +325,18 @@ public class Board {
 			if (this.outputBoard[player.getP().getX() + 1][player.getP().getY()] == ' ') {
 				directions.add("move south");
 			}
-		} else if (player.getP().getX() > 0) {
+		}
+		if (player.getP().getX() > 0) {
 			if (this.outputBoard[player.getP().getX() - 1][player.getP().getY()] == ' ') {
 				directions.add("move north");
 			}
-		} else if (player.getP().getY() < Board.BOARD_HEIGHT - 1) {
+		}
+		if (player.getP().getY() < Board.BOARD_HEIGHT - 1) {
 			if (this.outputBoard[player.getP().getX()][player.getP().getY() + 1] == ' ') {
 				directions.add("move east");
 			}
-		} else if (player.getP().getY() > 0) {
+		}
+		if (player.getP().getY() > 0) {
 			if (this.outputBoard[player.getP().getX()][player.getP().getY() - 1] == ' ') {
 				directions.add("move west");
 			}

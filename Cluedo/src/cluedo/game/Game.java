@@ -334,7 +334,7 @@ public class Game {
 	 * @param player
 	 */
 	public void wonTheGame(Player player) {
-		String output = "-------------The accusation does perfect match with the secret result-------------";
+		String output = "-------------The accusation does perfect match with the secret result-------------\n";
 		for (Card c : Game.cluedoCards) {
 			output += c.toString() + "\n";
 		}
@@ -358,7 +358,7 @@ public class Game {
 		// erase player from the board
 		board.outputBoard[player.getP().getX()][player.getP().getY()] = ' ';
 		// show up card to other players
-		for (Player p : TextClient.team) {
+		for (Player p : TextMain.team) {
 			if (p != player) {
 				for (Card c : player.getKnowingCards()) {
 					if (!p.getKnowingCards().contains(c)) {
@@ -368,9 +368,9 @@ public class Game {
 			}
 		}
 		// remove player
-		TextClient.team.remove(player);
-		if (TextClient.team.size() == 1) {
-			wonTheGame(TextClient.team.get(0));
+		TextMain.team.remove(player);
+		if (TextMain.team.size() == 1) {
+			wonTheGame(TextMain.team.get(0));
 		}
 		return 1;
 	}
