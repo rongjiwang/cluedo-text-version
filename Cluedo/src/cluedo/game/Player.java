@@ -310,7 +310,11 @@ public class Player {
 	 * @param p
 	 */
 	public void setP(Position p) {
-		this.p = p;
+		if (p.getX() > 24 || p.getY() > 24) {
+			System.out.println("Can't set player outside the board.");
+		} else {
+			this.p = p;
+		}
 	}
 
 	/**

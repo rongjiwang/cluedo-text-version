@@ -23,23 +23,9 @@ public class TextMain {
 	/**
 	 * control the gaming loop, text output, user input
 	 * 
-	 * @param args
 	 * @throws IOException
 	 */
-	public static void main(String[] args) throws IOException {
-		// message will be shown if the game could not find the appropriate
-		// map.txt file
-		if (args.length != 1) {
-			System.out.println("Can not setup board with out map.txt file.\n"
-					+ "Please drag the map.txt file outside your scr folder,\n"
-					+ "or include the map.txt inside your package if run by terminal\n");
-			System.exit(0);
-		}
-		// set up board from board class
-		board = new Board(args[0]);
-		// install scanner for user input
-		scan = new Scanner(System.in);
-		// only accept integer input from 3 to 6
+	public TextMain() throws IOException {
 		int numOfPlayers = 0;
 		while (numOfPlayers < 3 || numOfPlayers > 6) {
 			System.out.println("Please enter number 3,4,5 or 6 for how many players are going to play. ");
@@ -114,7 +100,7 @@ public class TextMain {
 	 *         exceptions(eg. player out of the game and so on)
 	 * @throws IOException
 	 */
-	private static int executeTheChoice(String string, Player player, Board board, Game game) throws IOException {
+	public static int executeTheChoice(String string, Player player, Board board, Game game) throws IOException {
 		int moveNotCountAsStep = 2;
 		switch (string) {
 
@@ -505,6 +491,28 @@ public class TextMain {
 			}
 			return -1;
 		}
+	}
+
+	/**
+	 * read valid map file and construct TextMain
+	 * 
+	 * @param args
+	 * @throws IOException
+	 */
+	public static void main(String[] args) throws IOException {
+		// message will be shown if the game could not find the appropriate
+		// map.txt file
+		if (args.length != 1) {
+			System.out.println("Can not setup board with out map.txt file.\n"
+					+ "Please drag the map.txt file outside your scr folder,\n"
+					+ "or include the map.txt inside your package if run by terminal\n");
+			System.exit(0);
+		}
+		// set up board from board class
+		board = new Board(args[0]);
+		// install scanner for user input
+		scan = new Scanner(System.in);
+		new TextMain();
 	}
 
 }

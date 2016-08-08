@@ -26,11 +26,11 @@ import cluedo.rooms.Study;
  *
  */
 public class Game {
-	private Board board;
+	public Board board;
 	/**
 	 * store all the alive players
 	 */
-	private ArrayList<Player> playTeam;
+	public ArrayList<Player> playTeam;
 	/**
 	 * total cards without secret cluedo cards
 	 */
@@ -211,7 +211,7 @@ public class Game {
 	 * @param board2
 	 * @return
 	 */
-	private String checkSuggestionOption(Player player, Board board2) {
+	public String checkSuggestionOption(Player player, Board board2) {
 		if (player.isArePlayerInARoom() && !player.isSuggestion()) {
 			player.setSuggestion(true);
 			return "make suggestion";
@@ -226,7 +226,7 @@ public class Game {
 	 * @param board2
 	 * @return
 	 */
-	private String checkExitRoomOption(Player player, Board board2) {
+	public String checkExitRoomOption(Player player, Board board2) {
 		if (player.isArePlayerInARoom()) {
 			return "exit room";
 		}
@@ -241,7 +241,7 @@ public class Game {
 	 * @param board2
 	 * @return
 	 */
-	private String checkStairOption(Player player, Board board2) {
+	public String checkStairOption(Player player, Board board2) {
 		// if player in the room
 		// if player in 1,2,3,4,room,
 		// then the stairs can be using
@@ -261,7 +261,7 @@ public class Game {
 	 * @param board2
 	 * @return
 	 */
-	private String checkRoomOption(Player player, Board board2) {
+	public String checkRoomOption(Player player, Board board2) {
 		// return the correct room name only when player standing at the
 		// knocking door position
 		for (Room r : board2.allRooms) {
@@ -334,7 +334,7 @@ public class Game {
 	 * @param player
 	 */
 	public void wonTheGame(Player player) {
-		String output = "-------------The accusation does perfect match with the secret result-------------\n";
+		String output = "-------------Below three cards are perfect match with the secret result-------------\n";
 		for (Card c : Game.cluedoCards) {
 			output += c.toString() + "\n";
 		}
